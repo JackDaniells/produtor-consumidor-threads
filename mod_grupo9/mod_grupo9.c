@@ -14,14 +14,10 @@ int setup = 0;
 pthread_t workThread[PROCESSORS_COUNT], prodThread;
 //cria os mutex
 pthread_mutex_t lockDeliver, lockCounter;
-pthread_mutex_t lockTeta;
 //cria o buffer
 rock_t bufferRock[PROCESSORS_COUNT];
 //cria as variáveis globais do buffer
 int posReadBuffer = 0, posWriteBuffer = 0, countRock = 0;
-sem_t semTeta;
-
-
 
 
 
@@ -80,7 +76,6 @@ static void* work(void* ignored) {
         //trava a thread se o buffer estiver vazio
         while(countRock <= 0);
 
-        sem_wait($semTeta);
         //incrementa o posRead
         posReadBuffer++;
         if ( posReadBuffer == PROCESSORS_COUNT ) posReadBuffer = 0;
@@ -90,7 +85,6 @@ static void* work(void* ignored) {
         
         //decrementa o contador
         CountRock(-1);
-        sem_post(&semTeta);
 
         //trava as outras threads enquanto pd_deliver() executa
         pthread_mutex_lock(&lockDeliver);
@@ -115,7 +109,6 @@ void mod_setup() {
     pthread_mutex_init(&lockDeliver, NULL);
     pthread_mutex_init(&lockCounter, NULL);
    
-    sem_init(&semTeta, NULL, NULL);
 
 
     //cria as threads
