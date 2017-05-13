@@ -5,7 +5,7 @@ curso de Sistemas de Informação da Universidade Federal de Santa Catarina.
 
 Mais informações podem ser obtidas no enunciado.pdf, que se encontra no repositório.
 
-Para executar o projeto, execute os seguintes comandos:
+Para executar o projeto, abra o terminal na pasta do projeto e execute os seguintes comandos:
 
 - make
 - ./grupo9
