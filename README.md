@@ -7,7 +7,7 @@ Mais informações podem ser obtidas no enunciado.pdf, que se encontra no reposi
 
 Para executar o projeto, abra o terminal na pasta do projeto e execute os seguintes comandos:
 
-- make
-- ./grupo9
+- $ make
+- $ ./grupo9
 
 
